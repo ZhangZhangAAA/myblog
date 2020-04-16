@@ -5,9 +5,13 @@ import App from './App'
 import router from './router'
 import ViewUI from 'view-design'
 import 'view-design/dist/styles/iview.css'
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+
 
 Vue.config.productionTip = false
 Vue.use(ViewUI);
+Vue.use(mavonEditor);
 
 /* eslint-disable no-new */
 new Vue({

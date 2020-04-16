@@ -1,10 +1,20 @@
 <template>
   <div id="home">
+    <div id="header"></div>
     <div class="layout">
       <Layout>
         <Header :style="header">
           <Menu mode="horizontal" theme="dark" active-name="1">
-            <div class="layout-logo"></div>
+            <div class="layout-logo">
+              <Dropdown>
+                <a href="javascript:void(0)">
+                  <Avatar src="https://i.loli.net/2017/08/21/599a521472424.jpg" size="large"/>
+                </a>
+                <DropdownMenu slot="list">
+                  <DropdownItem @click.native="toCenter">个人中心</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </div>
             <div class="layout-nav">
               <MenuItem name="1">
                 <Icon type="ios-navigate"></Icon>
@@ -34,14 +44,27 @@
                   </a>
                   <DropdownMenu slot="list">
                     <DropdownItem>全部</DropdownItem>
-                    <DropdownItem>炸酱面</DropdownItem>
-                    <DropdownItem disabled>豆汁儿</DropdownItem>
-                    <DropdownItem>冰糖葫芦</DropdownItem>
-                    <DropdownItem divided>北京烤鸭</DropdownItem>
+                    <DropdownItem>Android</DropdownItem>
+                    <DropdownItem>Web</DropdownItem>
+                    <DropdownItem>练习Demo</DropdownItem>
                   </DropdownMenu>
                 </Dropdown>
               </MenuItem>
               <MenuItem name="3">
+                <Icon type="ios-keypad"></Icon>
+                <Dropdown>
+                  <a href="javascript:void(0)">
+                    资源推荐
+                    <Icon type="ios-arrow-down"></Icon>
+                  </a>
+                  <DropdownMenu slot="list">
+                    <DropdownItem>镜像</DropdownItem>
+                    <DropdownItem>开发工具</DropdownItem>
+                    <DropdownItem>学习网站</DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
+              </MenuItem>
+              <MenuItem name="4">
                 <Icon type="ios-analytics"></Icon>
                 <Dropdown>
                   <a href="javascript:void(0)">
@@ -58,7 +81,7 @@
                   </DropdownMenu>
                 </Dropdown>
               </MenuItem>
-              <MenuItem name="4">
+              <MenuItem name="5">
                 <Icon type="ios-paper"></Icon>
                 <Dropdown>
                   <a href="javascript:void(0)">
@@ -103,6 +126,9 @@
     methods: {
       toBlog: function () {
         this.$router.push({path: '/blog'})
+      },
+      toCenter: function () {
+        this.$router.push({path: '/center'})
       }
     }
   }
@@ -112,22 +138,20 @@
   .layout {
     border: 1px solid #d7dde4;
     background: #f5f7f9;
-    position: relative;
+    position: fixed;
     border-radius: 4px;
     overflow: hidden;
     height: 100%;
     margin: 0;
-
+    margin-top: 10%;
   }
 
   .layout-logo {
-    width: 100px;
+    width: 5%;
     height: 30px;
-    background: #5b6270;
-    border-radius: 3px;
     float: left;
     position: relative;
-    top: 15px;
+    top: 5px;
     left: 20px;
   }
 
@@ -148,5 +172,9 @@
     height: 100%;
     width: 100%;
 
+  }
+
+  #header {
+    height: 30px;
   }
 </style>
