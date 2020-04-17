@@ -23,6 +23,7 @@
 </template>
 
 <script>
+
   export default {
     name: "BlogDetail",
     data() {
@@ -31,18 +32,19 @@
       }
 
     },
-    created() {
-      var that = this;
-      var data = '这是数据';
-      console.log(data);
-      that.$axios({
+    mounted() {
+      var url = 'http://localhost:9081/blog/test';
+      var data = {
+        name: '测试数据'
+      };
+      this.$axios({
         method: 'post',
-        url: 'http://localhost:9081/blog/test',
+        url: url,
         data: data
-      }).then(response => {
-        console.log(response);
-      }).catch(error => {
-        console.log(error)
+      }).then(resp => {
+        console.log('请求成功:' + resp.data);
+      }).catch(err => {
+        console.log('出错了:' + JSON.stringify(err));
       });
 
     },
