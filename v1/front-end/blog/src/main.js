@@ -7,9 +7,12 @@ import ViewUI from 'view-design'
 import 'view-design/dist/styles/iview.css'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
+import axios from 'vue-axios'
 
 
 Vue.config.productionTip = false
+
+Vue.prototype.$axios = axios;
 Vue.use(ViewUI);
 Vue.use(mavonEditor);
 

@@ -12,9 +12,7 @@
       </Anchor>
     </div>
     <div id="detail">
-      <tr v-for="count in 150">
-        {{count}}
-      </tr>
+      {{}}
     </div>
     <div id="rightcard">
       右边卡片
@@ -33,8 +31,20 @@
       }
 
     },
-    created: function () {
-      console.log(window.location.href);
+    created() {
+      var that = this;
+      var data = '这是数据';
+      console.log(data);
+      that.$axios({
+        method: 'post',
+        url: 'http://localhost:9081/blog/test',
+        data: data
+      }).then(response => {
+        console.log(response);
+      }).catch(error => {
+        console.log(error)
+      });
+
     },
     methods: {},
 

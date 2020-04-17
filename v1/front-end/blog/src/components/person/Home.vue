@@ -1,6 +1,5 @@
 <template>
   <div id="home">
-    <div id="header"></div>
     <div class="layout">
       <Layout>
         <Header :style="header">
@@ -98,7 +97,7 @@
             </div>
           </Menu>
         </Header>
-        <Content :style="{margin: '88px 20px 0', background: '#fff', minHeight: '690px',height:'80%'}">
+        <Content :style="content">
           Content
         </Content>
         <Footer class="layout-footer-center">2011-2016 &copy; TalkingData</Footer>
@@ -114,6 +113,13 @@
       return {
         header: {
           position: 'fixed',
+          width: '100%'
+        },
+        content: {
+          margin: '88px 20px 0',
+          background: '#fff',
+          minHeight: '690px',
+          height: '80%',
           width: '100%'
         },
         footer: {
@@ -134,7 +140,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .layout {
     border: 1px solid #d7dde4;
     background: #f5f7f9;
@@ -142,15 +148,16 @@
     border-radius: 4px;
     overflow: hidden;
     height: 100%;
+    width: 100%;
     margin: 0;
-    margin-top: 10%;
+    margin-top: 0px;
   }
 
   .layout-logo {
     width: 5%;
     height: 30px;
     float: left;
-    position: relative;
+    position: absolute;
     top: 5px;
     left: 20px;
   }
@@ -172,9 +179,5 @@
     height: 100%;
     width: 100%;
 
-  }
-
-  #header {
-    height: 30px;
   }
 </style>

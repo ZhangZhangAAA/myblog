@@ -1,5 +1,8 @@
 <template>
   <div id="main">
+    <div id="header">
+
+    </div>
     <div id="navi">
       <Row>
         <Col span="8">
@@ -7,11 +10,10 @@
             <Submenu name="1">
               <template slot="title">
                 <Icon type="ios-paper"/>
-                内容管理
+                博客管理
               </template>
-              <MenuItem name="1-1">文章管理</MenuItem>
-              <MenuItem name="1-2">评论管理</MenuItem>
-              <MenuItem name="1-3">举报管理</MenuItem>
+              <MenuItem name="1-1">博客列表</MenuItem>
+              <MenuItem @click.native="toEdit('12')" name="1-2">编写博客</MenuItem>
             </Submenu>
             <Submenu name="2">
               <template slot="title">
@@ -47,7 +49,9 @@
       </RadioGroup>
     </div>
     <div id="content">
-      Content
+      <tr v-for="index in 100">
+        {{index}}
+      </tr>
     </div>
   </div>
 </template>
@@ -59,19 +63,38 @@
       return {
         theme2: 'light'
       }
+    },
+    methods: {
+      toEdit: function (id) {
+        this.$router.push({
+          name: 'EditBlog',
+          params: {
+            id: id
+          }
+        });
+      }
     }
   }
 </script>
 
 <style scoped>
   #main {
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 100%;
   }
 
+  #header {
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    background-color: cornflowerblue;
+
+  }
+
   #navi {
     float: left;
+    margin-top: 60px;
     margin-left: 3px;
     position: fixed;
     width: 20%;
@@ -79,10 +102,10 @@
   }
 
   #content {
-    position: fixed;
-    height: 100%;
+    height: auto;
     width: 75%;
     float: left;
     margin-left: 18%;
+    margin-top: 65px;
   }
 </style>

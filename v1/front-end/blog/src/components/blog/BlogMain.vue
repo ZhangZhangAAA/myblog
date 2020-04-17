@@ -1,7 +1,7 @@
 <template>
   <div id="main">
-    <div class="layout">
-      <Layout>
+    <div id="content">
+      <div class="header">
         <Header>
           <Menu mode="horizontal" theme="dark" active-name="1">
             <div class="layout-logo"></div>
@@ -11,16 +11,13 @@
             </div>
           </Menu>
         </Header>
-      </Layout>
-    </div>
-    <div id="content">
+      </div>
       <div id="leftcard">
         <Card>
           <p slot="title">
             <Icon type="ios-film-outline"></Icon>
             技术标签
           </p>
-
           <Tag checked color="default">default</Tag>
           <Tag checked color="primary">primary</Tag>
           <Tag checked color="success">success</Tag>
@@ -31,28 +28,13 @@
           <Tag checked color="volcano">volcano</Tag>
           <Tag checked color="orange">orange</Tag>
           <Tag checked color="gold">gold</Tag>
-
         </Card>
       </div>
       <div id="list">
-        <List item-layout="vertical" split="">
+        <List item-layout="vertical">
           <ListItem v-for="item in data" :key="item.title">
             <ListItemMeta :avatar="item.avatar" :title="item.title" :description="item.description" :style="{cursor:'pointer'}" @click.native="toDetail(item.blogid)"/>
             {{ item.content }}
-            <template slot="action">
-              <li>
-                <Icon type="ios-star-outline"/>
-                123
-              </li>
-              <li>
-                <Icon type="ios-thumbs-up-outline"/>
-                234
-              </li>
-              <li>
-                <Icon type="ios-chatbubbles-outline"/>
-                345
-              </li>
-            </template>
           </ListItem>
         </List>
       </div>
@@ -149,6 +131,27 @@
             description: 'This is description, this is description, this is description.',
             avatar: 'https://dev-file.iviewui.com/userinfoPDvn9gKWYihR24SpgC319vXY8qniCqj4/avatar',
             content: 'This is the content, this is the content, this is the content, this is the content.'
+          },
+          {
+            blogid: '4',
+            title: 'This is title 3',
+            description: 'This is description, this is description, this is description.',
+            avatar: 'https://dev-file.iviewui.com/userinfoPDvn9gKWYihR24SpgC319vXY8qniCqj4/avatar',
+            content: 'This is the content, this is the content, this is the content, this is the content.'
+          },
+          {
+            blogid: '5',
+            title: 'This is title 3',
+            description: 'This is description, this is description, this is description.',
+            avatar: 'https://dev-file.iviewui.com/userinfoPDvn9gKWYihR24SpgC319vXY8qniCqj4/avatar',
+            content: 'This is the content, this is the content, this is the content, this is the content.'
+          },
+          {
+            blogid: '6',
+            title: 'This is title 3',
+            description: 'This is description, this is description, this is description.',
+            avatar: 'https://dev-file.iviewui.com/userinfoPDvn9gKWYihR24SpgC319vXY8qniCqj4/avatar',
+            content: 'This is the content, this is the content, this is the content, this is the content.'
           }
         ]
 
@@ -185,36 +188,68 @@
   }
 </script>
 
-<style>
+<style scoped>
+  .header {
+    border: 1px solid #d7dde4;
+    background: #f5f7f9;
+    position: fixed;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 65px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 0px;
+  }
+
+  .layout-logo {
+    width: 5%;
+    height: 100%;
+    float: left;
+    position: absolute;
+    top: 5px;
+    left: 20px;
+  }
+
+  .layout-nav {
+    width: 60%;
+    height: 100%;
+    position: fixed;
+    margin: 0 auto;
+  }
+
   #content {
     width: 100%;
     height: 100%;
     position: fixed;
+
   }
 
   #leftcard {
     float: left;
-    width: 16%;
+    width: 15%;
     height: 100%;
+    margin-top: 68px;
     margin-left: 5px;
-    margin-right: 20px;
-    margin-top: 10px;
     background-color: cadetblue;
   }
 
   #list {
-    width: 65%;
-    height: 100%;
+    margin-top: 68px;
+    width: 66%;
+    height: 80%;
     float: left;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   #right-card {
-    float: left;
+    float: right;
     width: 15%;
     height: 100%;
     margin-left: 25px;
     background-color: cornflowerblue;
-    margin-top: 10px;
+    margin-top: 68px;
+    margin-right: 5px;
   }
 
 </style>
